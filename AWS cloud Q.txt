@@ -1,0 +1,336 @@
+Kubernetes (K8s)
+What is the current version of K8s you are using in your project?
+What was the last production issue you faced and how did you resolve it?
+A pod is stuck in CrashLoopBackOff. Logs show failure during initialization — how do you troubleshoot?
+How do you enforce tenant isolation in a multi-tenant Kubernetes setup?
+During high traffic, your app shows intermittent 502 errors through Ingress — how do you debug?
+How do you prevent bad configs from reaching production in a CI/CD pipeline?
+How would you ensure zero-downtime deployment during a critical update?
+Helm deployment fails due to insufficient cluster resources — what’s your approach?
+How do you share Helm charts internally?
+What is Helm chart testing and how is it done?
+
+Docker
+How would you manage Docker workloads across multiple clouds?
+How do you handle image cleanup to prevent disk space issues?
+How do you manage multi-container dependencies using Docker Compose?
+How do you monitor container performance in production?
+Wrote a multi-stage Dockerfile during screen sharing.
+
+Terraform
+How do you manage Terraform provider versioning?
+How would you provision infra across 10 AWS regions simultaneously?
+What to do when your Terraform state file becomes too large?
+Terraform plan shows destroy + recreate for a critical DB — how to prevent downtime?
+
+GitHub Actions
+How do you reuse workflows across repositories?
+How to manage large workflow files efficiently?
+What’s the difference between public and private workflow repositories?
+How to implement workflow concurrency?
+How do you handle failed workflows?
+
+🚀 Clearing My LVM & Dynamic Storage Concepts After an Interview Question
+
+I once asked this in an AWS cloud engineer interview.
+
+Q: Your EKS pods are crashing with “out of memory” errors. How do you troubleshoot?
+
+A: I’d check the pod’s resource limits in the deployment spec. If they’re too low or missing, I’d adjust CPU/memory requests and limits to match the workload.
+
+Q: You launched an EC2 instance, but it’s stuck in the “pending” state. What’s going on?
+
+A: Could be an unavailable AMI or instance type in the AZ. I’d check if the AMI exists and if the AZ supports the instance type.
+
+Q: Your ALB is routing traffic unevenly across healthy targets. Why might that happen?
+
+A: The ALB’s load balancing algorithm might be session-based. I’d check if sticky sessions are enabled or if cross-zone load balancing is off, causing uneven distribution.
+
+Q: Your EKS cluster can’t scale new pods due to insufficient IPs. How do you resolve this?
+
+A: The VPC’s CIDR block might be too small. I’d enable VPC CNI’s custom networking or add a secondary CIDR to increase the IP pool.
+
+Q: You’re using AWS Secrets Manager, but your application can’t retrieve the secret. What’s wrong?
+
+A: The app’s IAM role might lack “secretsmanager:GetSecretValue” permission, or the secret’s ARN is misconfigured in the code. I’d verify both.
+
+Q: Your SQS queue is piling up messages, but your Lambda consumer isn’t processing them. Why?
+
+A: The Lambda might not have an event source mapping to the SQS queue, or its IAM role lacks permission to read from the queue. I’d check both.
+
+Q: You’re getting “ThrottlingException” errors from a DynamoDB table during peak traffic. How do you handle it?
+
+A: I’d enable auto-scaling for the table’s read/write capacity or switch to on-demand mode to handle bursts without throttling.
+
+Q: You enabled MFA for an IAM user, but they can still log in without it. Why?
+
+A: The MFA policy might not be enforced. I’d ensure a policy requiring MFA is attached to the user or group and that it’s applied to the console login action.
+
+
+
+Why the AWS DNS service is called Route 53 ? not a 43 or 63? 
+
+Because DNS always uses port 53. amazon just added the word “route” in front of it to show it’s about directing internet traffic.
+
+And, it is the only AWS service with 100% availability SLA.
+
+fascinating.
+
+
+Recently My friends are attending multiple interviews and here I shared their interview questions which are asked for them. This interview question is for 0-2 year of experience.
+
+ 1. Explain your Day to Day activities 
+ 2. Do you have hands-on in Linux? If yes, Which Platform?
+ 3. What is the latest version of Ubuntu?
+ 4. I have index.html on GitHub, I need to push it into aws. The requirement is one load balancer is required and we provide index.html in GitHub repo and we provide username and token. How to achieve this?
+ 5. what is dependinces resources for the IP?
+ 6. What is the command to connect EC2 instance?
+ 7. How to implement Internet gateway?
+ 8. How to configure internet gateway to route table?
+ 9. What is the exact command to log in the instance and what kind of authentication will you use ? Do you need password to provide or something else ?
+10. In which path will you create index.html in Server ?
+11. Explain Most common linux Commands 
+12. How to check one running process?
+13. How to list running process?
+14. You need to find one particular process id and how to kill that? Is it possible in single command?
+15. How to check disk usage?
+16. How to find free memory?
+17. How do you archive and compress directory in Linux?
+18. Chmod 755 means?
+19. If I provide chmod 755 means, what exactly will happen?
+20. what is chown ?
+21. How to list all ssh users in Linux?
+22. If one apache server is running, I need to check logs? where do I check? In which directory?
+23. what kind of logs can see in /var/log ?
+24. Purpose of Grep command?
+25. I need to grep keyword:linux. Expect the keyword linux, I need to list out all the lines from the linux.txt file. which flag will you used with grep?
+26. Difference between "cron" and "at" ?
+27. How to schedule activity in Linux and you need to run a script every 5 minutes?
+28. Explain Git pull and Git Fetch 
+29. How do you resolve merge conflict?
+30. How to create custom image in Docker ?
+31. Elaborate Docker file.
+32. What is the prerequisites of "docker build" command?
+33. How do copy file from the container to host ?
+34. what if we put "COPY ." ? what will happen in background? what is the source and destination here ?
+35. what is Route 53?
+36. Is it possible to purchase a domain in route 53 ?
+37. What is the configuration file of Prometheus?
+38. Where can I setup the alerting? In Prometheus or Grafana?
+39. I want to configure one alerting disk Usage of one of the server reaches 80%, it should alert sms? where can I do these configuration? 
+40. How to generate token in GitHub? Explain
+
+
+1. Your EC2 instance becomes unreachable via SSH during peak traffic. How do you troubleshoot without restarting it?
+
+2. An application on EC2 is running slow, but CPU and memory look normal. What do you check next?
+
+3. You deployed an update on EC2 and the health checks behind ALB started failing. How do you debug it?
+
+4. Your EC2 instance is stuck in a boot loop with a kernel panic error. How do you recover it?
+
+5. A microservice hosted on EC2 is dropping 20% of connections randomly. How do you identify the root cause?
+ 
+6. Your t3.micro instance is suddenly very slow even though CPU % is low. What is happening and how to fix it?
+
+7. After deploying a new AMI, all instances fail the user-data script. How do you troubleshoot the user-data execution?
+
+8. Your EC2 root EBS volume is 100% full and the instance is not responding. What steps will you take?
+
+9. Your production EC2 instance is accidentally terminated. How do you recover as much data as possible? 
+
+10. You need to migrate EC2-based workloads to another region with zero downtime. How do you plan the migration?
+
+11. A security audit reports exposure via IMDSv1. What changes do you perform immediately?
+
+12. Your EC2 instance is under DDoS attack. What steps do you take from AWS side and OS side?
+
+13. Two EC2 instances in the same subnet cannot communicate. What are possible causes?
+
+14. EC2 instances behind an ALB take too long to deregister during deployments. How do you optimize?
+
+15. Your instance is failing to attach an EBS volume after restart. What can cause this and how do you fix it?
+
+16. You increase EC2 instance size but application still performs poorly. What else can be the reason?
+
+17. You need to rotate application secrets stored on EC2. What is the best automated approach?
+
+18. A single EC2 instance receives unpredictable traffic spikes. How do you redesign it for stability?
+
+19. EC2 patching is taking too long on a fleet of 200 servers. How do you automate OS patching?
+
+20. Your instance cannot reach the internet even though it's in a public subnet. What are all possible misconfigurations?
+
+21. A new EC2 instance takes too long to bootstrap. How do you optimize AMI and user-data processing?
+
+22. EC2 Nginx server shows “upstream timeout” errors randomly. What AWS-level issues may cause it?
+
+23. An instance’s network throughput is capped but CPU is low. Why and how do you fix it?
+
+24. A production team is facing high EBS IO latency on EC2. How do you diagnose and solve it?
+
+25. You need to enable detailed auditing of who accessed which EC2 instance. What’s the best way?
+
+
+
+
+DEVOPS:
+
+
+🚀 DevOps Interview Preparation - Final 
+Scenario-Based Questions + Production Issues + Final Interview Readiness
+
+These last days are what actually decide interview selection.
+Interviewers want to see how you think, troubleshoot, and explain, not just tools.
+
+Final Scenario-Based DevOps Interview Questions
+
+• Application is slow — how will you troubleshoot?
+• Server CPU usage is 90% — what steps will you take?
+• Disk is full on a Linux server — how will you fix it?
+• CI pipeline suddenly fails — what is your approach?
+• Build is successful but deployment failed — how will you debug?
+• Docker container keeps restarting — what will you check?
+• Kubernetes pod is in CrashLoopBackOff — what steps will you follow?
+• Application is not accessible via Load Balancer — what could be wrong?
+• Secrets got exposed in GitHub — what will you do immediately?
+• How do you rollback a bad deployment?
+• How do you handle downtime during deployment?
+• What monitoring alerts are critical in production?
+• How do you reduce cloud cost in AWS/Azure/GCP?
+• What is your approach during a production incident?
+• Jenkins pipeline stuck or slow
+GitHub Actions job timing out
+• Docker image size too large
+• Kubernetes pods not scaling
+• HPA not working
+• Services not discovering each other
+• Ingress not routing traffic
+• Terraform apply failed — state locked
+• Ansible playbook failed on one host
+• Prometheus not scraping targets
+• Grafana dashboard showing no data
+• Cloud VM unreachable
+• SSL certificate expired
+• Application crash after deployment
+• Memory leak in containerized app
+• How do you explain your DevOps projects?
+• How do you describe CI/CD pipeline end-to-end?
+• What tools did you use and why?
+• What challenges did you face in your project?
+• How do you explain cloud architecture simply?
+• How do you justify DevOps for a fresher role?
+• How do you answer “No production experience”?
+• What should be on a DevOps fresher resume?
+• How many projects are enough for 0–2 years?
+• How do you handle HR questions confidently?
+• Why should we hire you as a DevOps Engineer?
+• Where do most candidates fail interviews?
+
+💡 Golden Tip:
+If you can clearly explain one solid project + troubleshooting approach,
+you can clear most DevOps fresher & junior interviews.
+
+ Interview Prep & DevOps Career Transition Support
+I am providing complete interview preparation training for:
+
+ Freshers & early professionals (0–2 yrs)
+ DevOps interview preparation (tool + scenario-based)
+ Professionals looking to transition into a DevOps Engineer role from Support, QA, SysAdmin, NOC, Networking, or Development
+
+ DM me personally if:
+• You want end-to-end DevOps training
+• You want mock interviews & resume review
+• You’re serious about cracking your dream DevOps role
+
+Let’s work together to turn your DevOps preparation into an offer letter 🚀
+
+hashtag#DevOps hashtag#InterviewPreparation hashtag#DevOpsEngineer hashtag#ProductionIssues 
+
+If you’re interested in DevOps, learn:
+
+Linux + Scripting
+Then automate routine tasks like log rotation.
+
+Git + GitHub Actions
+Then build CI/CD pipelines for simple apps.
+
+Docker + Kubernetes
+Then deploy a containerized app to a local cluster.
+
+Terraform + AWS
+Then provision an EC2 instance with Terraform and deploy your app on it.
+
+Keep accumulate expertise with practical hands-on.
+
+You can build scalable infra, run production grade CI/CD, and manage cloud native systems for any startup or enterprise.
+
+58K+ read my DevOps and Cloud newsletter: https://lnkd.in/gg3RQsRK
+
+What do we cover: 
+DevOps, Cloud, Kubernetes, IaC, GitOps, MLOps
+
+
+
+🐧 1. Linux
+ • Difference between soft mount vs hard mount in NFS
+ • How do you capture and analyze system calls of a process?
+ • Your application is randomly freezing — how do you troubleshoot?
+ • A server with 64GB RAM is aggressively swapping — how would you handle it?
+
+⸻
+
+☁️ 2. AWS
+ • ECS tasks are crashing frequently — how do you troubleshoot?
+ • How do you secure ECS tasks that need access to S3 & DynamoDB?
+ • Ensuring compliance & auditability for RDS access
+ • When is VPC Peering more suitable than Transit Gateway?
+ • Secure cross-account access for external partners
+ • Handling predictable peaks + sudden traffic spikes using scheduled & dynamic scaling
+
+⸻
+
+🐳 3. Docker
+ • Securing Docker against kernel privilege escalation
+ • Running thousands of containers per host — required Linux tuning
+ • Ensuring data-at-rest encryption for container volumes
+ • Managing multi-cloud Docker deployments with compliance constraints
+ • Writing a complete multi-stage Dockerfile from scratch
+
+⸻
+
+⚙️ 4. Kubernetes
+ • Control plane becomes unreachable — how do you recover?
+ • etcd data corruption prevents cluster startup — recovery strategy
+ • Pod stuck in ImagePullBackOff — troubleshooting approach
+ • Ingress controller bottleneck during high traffic — resolution
+ • Failed StatefulSet upgrade causing crash loops — safe rollback
+
+⸻
+
+🔁 5. Jenkins
+ • Reducing pipeline execution time in large projects
+ • Managing pipelines for multiple microservices with dependencies
+
+⸻
+
+🧱 6. Terraform
+ • Secret rotation for Terraform-managed resources
+ • Safely destroying a specific resource
+ • count vs for_each — key differences
+ • Managing provider versioning
+ • Debugging unnecessary resource recreation
+ • Testing Terraform code before production
+
+⸻
+
+📊 7. SRE
+ • Handling a high-severity production outage
+ • Calculating error budgets & difference between SLI, SLO & SLA
+ • Reducing toil in incident response
+ • Capacity planning for rapidly growing services
+ • Implementing blameless postmortems
+
+
+
+
