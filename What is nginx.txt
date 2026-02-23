@@ -1,0 +1,74 @@
+What is nginx?
+
+It is a web-server that accepts requests via http/s and respond to display website content through storing, processing, and delivering webpages to users
+
+This can also be used as Reverse Proxy, Load Balancer etc
+
+
+What is a proxy server?
+
+In computer networking, a proxy server is a server application that acts as an intermediary between a client requesting a resource and the server providing that resource.
+
+What is a reverse proxy server?
+
+A proxy service which takes a client request, passes it on to one or more servers.
+Proxying is typically used to distribute the load among several servers,
+seamlessly show content from different websites,
+or pass requests for processing to application servers over protocols other than HTTP.
+
+What is Forward Proxy?
+-----------------------
+
+A forward proxy, also referred to as a “proxy server,” or simply a “proxy,” is a server that sits in front of one or more client computers and serves as a conduit between the clients and the internet. The forward proxy receives the request before sending it on from the client machine to the internet resource. On behalf of the client machine, the forward proxy then sends the request to the internet and returns the response.
+
+
+/(Root)        : Every single file and directory start from the root directory.
+/bin           : Contains binary executables.cat, ls, cp etc are here
+/boot         : Boot loader files, e.g., kernels, initrd.
+/dev         : Include terminal devices, usb, or any device attached to the system.
+/etc         : Contains configuration files required by all programs.
+/home        : Home directories for all users to store their personal files.
+/tmp         : Temporary files.
+
+git init  --> initialize git , this is local repo. .git directory will be create which contain files/dir maintained by git. The .git directory contains metadata and the entire history of the project,
+what ever we do track, committing file etc will be in .git directory
+
+git Restore: Does not modify commit history or the repository's HEAD pointer. It only reverts changes in the working directory or staging area.
+
+git reset:  Can modify commit history by moving the HEAD pointer and potentially discarding changes.
+
+Git Merge: Keeps the history intact and is safer for shared branches. Ideal for collaborative projects.
+Git Rebase: Rewrites history for a cleaner, linear commit log. Best suited for private or feature branch
+
+MERGE vs REBASE
+
+Merge for public repos, rebase for Private
+Merge stores history, rebase will not store the entire history (commits)
+merge will show files, rebase will not show files
+
+Sqaush and merge : combining the commits history
+Use squash and merge for branches with many small or work-in-progress commits to keep the history clean.
+
+Squash and Merge is a method used during the pull request (PR) or branch merging process to combine all the commits from a feature branch into a single commit on the target branch. This is particularly useful for maintaining a clean and concise commit history.
+
+Rebase and Merge :  Retains individual commits
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>Docker>>>>>>>>>>>>>>
+A Docker image is made up of multiple layers, which are stacked on top of each other. Each layer represents a set of file changes (like adding, modifying, or deleting files) and helps in optimizing storage and reusability.
+
+docker attach
+-------------
+is used to attach your terminal to the standard input, output, and error streams of the main process running inside a container.
+It allows you to interact with the container's main process as if you were running it directly in your terminal.
+
+docker exec
+-----------
+
+is used to run a new command in an already running container.
+This command allows you to start additional processes inside the container independently of the main process.
+
+docker attach interacts with the container's main process (PID 1).
+docker exec starts a new, separate process inside the container.
+
+
+
